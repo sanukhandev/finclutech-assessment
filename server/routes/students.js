@@ -3,7 +3,7 @@ const {getAllStudents, createStudent, updateStudent, deleteStudent, getStudentBy
 } = require("../controller/studentController");
 const router = require('express').Router();
 
-router.get('/', getAllStudents);
+router.post('/', getAllStudents);
 router.post('/create', createStudent);
 router.get('/:id', getStudentById);
 router.get('/student-id/:id', getStudentByStudentId);

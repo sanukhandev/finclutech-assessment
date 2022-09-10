@@ -8,9 +8,9 @@ const usersRouter = require('./routes/users');
 const mongoose = require("mongoose");
 const config = require("./config");
 const {isAuth} = require("./util/authMiddlewhere");
-
+const cors = require("cors");
 const app = express();
-
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 mongoose.connect(

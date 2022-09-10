@@ -7,11 +7,36 @@ const index = (req, res) => {
 }
 
 const getAllStudents = async (req, res) => {
+    const MAX = '5000';
+    const MIN = '0';
+    const {FirstName, LastName, City, State, Country, Gender, StudentStatus, Major, Age,SAT,Height} = req.body;
+    const age = Age.split('-').filter((item) => item !== '');
+    const sat = SAT.split('-').filter((item) => item !== '');
+    const height = Height.split('-').filter((item) => item !== '');
+    const ageFilter = age && age.length > 1? {$gte: age[0] === 'min' ? MIN: age[0], $lte: age[1]==='max' ? MAX : age[1]} : age.length === 1 ?  age[0] : new RegExp('','i');
+    const satFilter = sat && sat.length > 1? {$gte: sat[0] === 'min' ? MIN: sat[0], $lte: sat[1]==='max' ? MAX : sat[1]} : sat.length === 1 ?  sat[0] : new RegExp('','i');
+    const heightFilter = height && height.length > 1? {$gte: height[0] === 'min' ? MIN: height[0], $lte: height[1]==='max' ? MAX : height[1]} : height.length === 1 ?  height[0] : new RegExp('','i');
+    const filter = {
+        FirstName: new RegExp(`^${FirstName}`, 'i'),
+        LastName: new RegExp(`^${LastName}`, 'i'),
+        City: new RegExp(`^${City}`, 'i'),
+        State: new RegExp(`^${State}`, 'i'),
+        Gender: new RegExp(`^${Gender}`, 'i'),
+        StudentStatus: new RegExp(`^${StudentStatus}`, 'i'),
+        Major: new RegExp(`^${Major}`, 'i'),
+        Country: new RegExp(`^${Country}`, 'i'),
+        Age: ageFilter,
+        SAT: satFilter,
+        Height: heightFilter,
+
+    };
+    const isFilterEmpty = Object.values(req.body).every(value => value === '');
     const page = req.query.page || 1;
     const limit = req.query.limit || 10;
     const startIndex = (page - 1) * limit;
-    const total = await Student.countDocuments();
-    const students = await Student.find().skip(startIndex).limit(limit);
+    let total =  await Student.countDocuments();
+    const students = await Student.find(filter).skip(startIndex).limit(limit);
+    total = Math.ceil((isFilterEmpty ? total: students.length) / limit);
     respond(res, 200, { total, page, limit, students});
 }
 
