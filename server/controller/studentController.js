@@ -7,8 +7,12 @@ const index = (req, res) => {
 }
 
 const getAllStudents = async (req, res) => {
-    const students = await Student.find();
-    respond(res, 200, students);
+    const page = req.query.page || 1;
+    const limit = req.query.limit || 10;
+    const startIndex = (page - 1) * limit;
+    const total = await Student.countDocuments();
+    const students = await Student.find().skip(startIndex).limit(limit);
+    respond(res, 200, { total, page, limit, students});
 }
 
 const getStudentById = async (req, res) => {
