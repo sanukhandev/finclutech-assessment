@@ -1,4 +1,4 @@
-import {useEffect, useReducer, useState} from "react";
+import {useEffect, useState} from "react";
 import ErrorAlert from "../components/errorAlert";
 import Table from "../components/table";
 import {fetchHookWithToken, fetchHookWithTokenAndBody} from "../utils/fetchUtil";
@@ -56,7 +56,7 @@ const ListStudents = () => {
     }
     useEffect(() => {
         fetchStudents({page})
-    }, [page, filter])
+    })
     const columns = Object.keys(initialFilterState || {}).filter(key => key !== '_id' && key !== 'ID').map(key => ({
             label: key,
             field: key
