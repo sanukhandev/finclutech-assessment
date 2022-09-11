@@ -28,7 +28,7 @@ const Table = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {data.map((item, index) => (
+                {data.map((item) => (
                     <tr className="bg-white" key={item.ID}>
 
                         <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">

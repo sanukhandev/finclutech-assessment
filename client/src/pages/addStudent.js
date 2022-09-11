@@ -33,7 +33,7 @@ const AddStudent = () => {
             if (id) {
                 const fetchStudent = async () => {
                     const studentPromise = await fetchHookWithTokenAndBody(`students/${id}`, {method: 'GET'})
-                    if (studentPromise.status === 'ERROR') {
+                    if (studentPromise.status == 'ERROR') {
                         setError('Error fetching Student')
                     } else {
                         setStudentStateObj(studentPromise.data)
@@ -48,7 +48,7 @@ const AddStudent = () => {
         const url = id ? `students/${id}` : 'students/create'
         const method = id ? 'PUT' : 'POST'
         const newStudentPromise = await fetchHookWithTokenAndBody(  url, {method: method}, studentStateObj)
-        if (newStudentPromise.status === 'ERROR') {
+        if (newStudentPromise.status == 'ERROR') {
             setError(newStudentPromise.message)
         } else {
             setStudentStateObj(initialState)

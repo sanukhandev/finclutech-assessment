@@ -1,4 +1,4 @@
-const URL = 'http://localhost:5000/';
+const URL = '/';
 
 const fetchHook = (url, options) => {
     options.headers = {
