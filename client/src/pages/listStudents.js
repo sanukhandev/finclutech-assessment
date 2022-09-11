@@ -56,7 +56,7 @@ const ListStudents = () => {
     }
     useEffect(() => {
         fetchStudents({page})
-    })
+    }, [page, filter])
     const columns = Object.keys(initialFilterState || {}).filter(key => key !== '_id' && key !== 'ID').map(key => ({
             label: key,
             field: key

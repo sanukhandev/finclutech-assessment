@@ -6,7 +6,8 @@
     "start:dev": "nodemon ./bin/www",
     "seed:db": "node seedDb",
     "build:client": "cd client && npm run build",
-    "start": "ls -l && node ./bin/www"
+    "start": "ls -l && node ./bin/www",
+    "deploy:heroku":"git push heroku main"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
