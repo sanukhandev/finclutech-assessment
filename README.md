@@ -34,6 +34,39 @@ https://github.com/Finclutech/finclutech_interview/blob/main/customer_info.json.
   - Create a new entry
   - Amend an entry
   -Remove a record
+
+## Task List
+- [x] Create a new repository on GitHub
+- [x] Create a new project on Heroku
+- [x] Create a new MongoDB database on Atlas
+- [x] Create a new React app
+- [x] Create a new NodeJS app
+- [x] Create a new Express app
+- [x] Create a new Mongoose schema
+- [x] Create a new Mongoose model
+- [x] Create a new user controller
+- [x] Create a new student controller
+- [x] Create a new router
+- [x] Create a new jwt service
+- [x] Create a new util service
+- [x] Create a new user service
+- [x] Create a new student service
+- [x] Backend code cleanup
+- [x] Dev deployment on Heroku
+
+### TODO
+- [ ] Frontend code cleanup
+- [ ] Code optimization
+- [ ] Code refactoring
+- [ ] Code documentation
+- [ ] Code testing
+- [ ] Code deployment
+- [ ] Code debugging
+- [ ] Code maintenance
+- [ ] Code security
+- [ ] Code performance
+- [ ] Code scalability
+ 
 ## Demo
 Demo project deployed on Heroku: [https://finclutech.herokuapp.com/](https://finclutech.herokuapp.com/)
 - Dummy accounts:
