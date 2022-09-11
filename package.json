@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start:dev": "nodemon ./bin/www",
+    "start:dev": "concurrently \"npm run start\" \"npm run start:dev:client\"",
+    "start:dev:client": "cd client && npm run start",
     "seed:db": "node seedDb",
+    "install:deps": " npm install && cd client && npm install",
     "build:client": "cd client && npm run build",
-    "start": "ls -l && node ./bin/www",
+    "start": "node ./bin/www",
     "deploy:heroku":"git push heroku main"
   },
   "dependencies": {
