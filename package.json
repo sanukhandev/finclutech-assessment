@@ -6,7 +6,7 @@
     "start:dev": "nodemon ./bin/www",
     "seed:db": "node seedDb",
     "build:client": "cd client && npm run build",
-    "start": "node dist/src/bin/www"
+    "start": "ls -l && node ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
