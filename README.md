@@ -68,7 +68,7 @@ https://github.com/Finclutech/finclutech_interview/blob/main/customer_info.json.
 - [ ] Code scalability
  
 ## Demo
-Demo project deployed on Heroku: [https://finclutech.herokuapp.com/](https://finclutech.herokuapp.com/)
+Demo project deployed on Heroku: [https://finclutech-assessment.herokuapp.com/login](https://finclutech-assessment.herokuapp.com/login)
 - Dummy accounts:
     - email: `sanu@admin.com` - password: `qwerty123`
 
